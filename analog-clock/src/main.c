@@ -1,6 +1,7 @@
 #include <raylib.h>
 #include <time.h>
 #include <math.h>
+#include <stdio.h>
 #define RAYGUI_IMPLEMENTATION
 #include "../include/raygui.h"
 #include "../include/params.h"
@@ -38,7 +39,11 @@ int main(void)
     InitClockHand(&minuteHand, minuteHandLength, minuteHandThick, minuteHandAngle, minuteHandColor);
     InitClockHand(&secondHand, secondHandLength, secondHandThick, secondHandAngle, secondHandColor);
 
+    bool isSettingsWindowOpened = false;
+
+
     InitWindow(screenSize.x, screenSize.y, "analog clock");
+    //InitSettingsWindow();
     SetTargetFPS(60);
 
     while (!WindowShouldClose())
@@ -49,7 +54,8 @@ int main(void)
             DrawClockFace(&cf);
             DrawClockMarks(&cf);
             DrawClockHands(&hourHand, &minuteHand, &secondHand);
-            InitSettingsWindow();
+            if (GuiButton((Rectangle){ 10, 10, 100, 100 }, "SHOW CONTENT AREA")) isSettingsWindowOpened = true;
+            DrawSettingsWindow(&isSettingsWindowOpened);
         EndDrawing();
 
     }
