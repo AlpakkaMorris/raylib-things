@@ -7,7 +7,7 @@
 #include "../include/params.h"
 #include "../include/drawing.h"
 #include "../include/settings-window.h"
-
+/*
 Vector2 screenSize = {700, 700};
 Vector2 screenCenter = {350, 350};
 
@@ -28,7 +28,7 @@ float secondHandLength = 210.0f;
 float secondHandThick = 2.0f;
 float secondHandAngle = 0.0f;
 Color secondHandColor = RED;
-
+*/
 int main(void)
 {
     ClockFace cf;

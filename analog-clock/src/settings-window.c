@@ -1,6 +1,7 @@
 #include <raylib.h>
 
 #include <stdio.h>
+#include "../include/params.h"
 #include "../include/raygui.h"
 #include "../include/settings-window.h"
 
@@ -18,6 +19,7 @@ void DrawSettingsWindow(bool *isSettingsWindowOpened)
       {
       int result = GuiWindowBox(panelContentRec, "title");
         //ClearBackground(RAYWHITE);
+      int temp = clockRadius;
 
        DrawRectangle(panelRec.x + panelScroll.x, panelRec.y + panelScroll.y, panelContentRec.width, panelContentRec.height, Fade(RED, 0.1));
 
@@ -29,16 +31,17 @@ void DrawSettingsWindow(bool *isSettingsWindowOpened)
         BeginScissorMode(panelView.x, panelView.y, panelView.width, panelView.height);
           //GuiGrid((Rectangle){panelRec.x + panelScroll.x, panelRec.y + panelScroll.y,   panelContentRec.width, panelContentRec.height}, NULL, 16, 3, NULL);
           //int res = GuiButton((Rectangle){baseOffset + panelScroll.x, baseOffset + panelScroll.y, 100, 50}, "test");
-          DrawSettingsLabel("testttt", 1);
-          DrawSettingsLabel("size", 2);
+          DrawSettingsLabel("testttt", 1, &temp);
+          //DrawSettingsLabel("size", 2, &)baseOffset);
         EndScissorMode();
       if (result > 0) *isSettingsWindowOpened = false;
       }
 }
 
-void DrawSettingsLabel(const char* settingName, int position)
+void DrawSettingsLabel(const char* settingName, int position, int* settingValue)
 {
   GuiLabel((Rectangle){panelContentRec.x + 30 + panelScroll.x, panelContentRec.y + (30 * position) + panelScroll.y, 100, 24}, settingName);
-  GuiButton((Rectangle){panelContentRec.x + 140 + panelScroll.x, panelContentRec.y + (30 * position) + panelScroll.y, 50, 24}, "tset button");
+  //GuiButton((Rectangle){panelContentRec.x + 140 + panelScroll.x, panelContentRec.y + (30 * position) + panelScroll.y, 50, 24}, "tset button");
+  GuiValueBox((Rectangle){panelContentRec.x + 140 + panelScroll.x, panelContentRec.y + (30 * position) + panelScroll.y, 50, 24}, "test", settingValue, 0, 1000, 1);
 }
 

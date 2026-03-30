@@ -3,6 +3,6 @@
 
 
 void DrawSettingsWindow(bool* isSettingsWindowOpened);
-void DrawSettingsLabel(const char* settingName, int position);
+void DrawSettingsLabel(const char* settingName, int position, int* settingValue);
 
 #endif
