@@ -4,22 +4,22 @@
 extern Vector2 screenSize;
 extern Vector2 screenCenter;
 
-extern float clockRadius;
+extern int clockRadius;
 extern Color clockColor;
 
-extern float hourHandLength;
-extern float hourHandThick;
-extern float hourHandAngle;
+extern int hourHandLength;
+extern int hourHandThick;
+extern int hourHandAngle;
 extern Color hourHandColor;
 
-extern float minuteHandLength;
-extern float minuteHandThick;
-extern float minuteHandAngle;
+extern int minuteHandLength;
+extern int minuteHandThick;
+extern int minuteHandAngle;
 extern Color minuteHandColor;
 
-extern float secondHandLength;
-extern float secondHandThick;
-extern float secondHandAngle;
+extern int secondHandLength;
+extern int secondHandThick;
+extern int secondHandAngle;
 extern Color secondHandColor;
 
 typedef struct
@@ -37,7 +37,7 @@ typedef struct
     Color color;
 } ClockHand;
 
-void InitClockFace(ClockFace *cl, float radius, Color color, Vector2 center);
-void InitClockHand(ClockHand *ch, float length, float thick, float angle, Color color);
+void InitClockFace(ClockFace *cl, int radius, Color color, Vector2 center);
+void InitClockHand(ClockHand *ch, int length, int thick, int angle, Color color);
 
 #endif

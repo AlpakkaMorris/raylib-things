@@ -19,7 +19,6 @@ void DrawSettingsWindow(bool *isSettingsWindowOpened)
       {
       int result = GuiWindowBox(panelContentRec, "title");
         //ClearBackground(RAYWHITE);
-      int temp = clockRadius;
 
        DrawRectangle(panelRec.x + panelScroll.x, panelRec.y + panelScroll.y, panelContentRec.width, panelContentRec.height, Fade(RED, 0.1));
 
@@ -31,7 +30,7 @@ void DrawSettingsWindow(bool *isSettingsWindowOpened)
         BeginScissorMode(panelView.x, panelView.y, panelView.width, panelView.height);
           //GuiGrid((Rectangle){panelRec.x + panelScroll.x, panelRec.y + panelScroll.y,   panelContentRec.width, panelContentRec.height}, NULL, 16, 3, NULL);
           //int res = GuiButton((Rectangle){baseOffset + panelScroll.x, baseOffset + panelScroll.y, 100, 50}, "test");
-          DrawSettingsLabel("testttt", 1, &temp);
+          DrawSettingsLabel("testttt", 1, &clockRadius);
           //DrawSettingsLabel("size", 2, &)baseOffset);
         EndScissorMode();
       if (result > 0) *isSettingsWindowOpened = false;

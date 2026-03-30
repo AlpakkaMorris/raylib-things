@@ -4,34 +4,34 @@
 Vector2 screenSize = {700, 700};
 Vector2 screenCenter = {350, 350};
 
-float clockRadius = 300.0f;
+int clockRadius = 300.0f;
 Color clockColor = LIGHTGRAY;
 
-float hourHandLength = 150.0f;
-float hourHandThick = 6.0f;
-float hourHandAngle = 0.0f;
+int hourHandLength = 150.0f;
+int hourHandThick = 6.0f;
+int hourHandAngle = 0.0f;
 Color hourHandColor = BLACK;
 
-float minuteHandLength = 190.0f;
-float minuteHandThick = 4.0f;
-float minuteHandAngle = 0.0f;
+int minuteHandLength = 190.0f;
+int minuteHandThick = 4.0f;
+int minuteHandAngle = 0.0f;
 Color minuteHandColor = BLACK;
 
-float secondHandLength = 210.0f;
-float secondHandThick = 2.0f;
-float secondHandAngle = 0.0f;
+int secondHandLength = 210.0f;
+int secondHandThick = 2.0f;
+int secondHandAngle = 0.0f;
 Color secondHandColor = RED;
 
-void InitClockFace(ClockFace *cl, float radius, Color color, Vector2 center)
+void InitClockFace(ClockFace *cl, int radius, Color color, Vector2 center)
 {
-    cl->radius = radius;
+    cl->radius = (float)radius;
     cl->color = color;
     cl->center = center;
 }
 
-void InitClockHand(ClockHand *ch, float length, float thick, float angle, Color color)
+void InitClockHand(ClockHand *ch, int length, int thick, int angle, Color color)
 {
-    ch->length = length;
-    ch->thick = thick;
+    ch->length = (float)length;
+    ch->thick = (float)thick;
     ch->color = color;
 }
