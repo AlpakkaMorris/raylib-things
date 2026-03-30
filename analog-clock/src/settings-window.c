@@ -1,5 +1,4 @@
 #include <raylib.h>
-
 #include <stdio.h>
 #include "../include/params.h"
 #include "../include/raygui.h"
@@ -30,7 +29,7 @@ void DrawSettingsWindow(bool *isSettingsWindowOpened)
         BeginScissorMode(panelView.x, panelView.y, panelView.width, panelView.height);
           //GuiGrid((Rectangle){panelRec.x + panelScroll.x, panelRec.y + panelScroll.y,   panelContentRec.width, panelContentRec.height}, NULL, 16, 3, NULL);
           //int res = GuiButton((Rectangle){baseOffset + panelScroll.x, baseOffset + panelScroll.y, 100, 50}, "test");
-          DrawSettingsLabel("testttt", 1, &clockRadius);
+          DrawSettingsLabel("Clock Radius", 1, &hourHand.length);
           //DrawSettingsLabel("size", 2, &)baseOffset);
         EndScissorMode();
       if (result > 0) *isSettingsWindowOpened = false;

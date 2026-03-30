@@ -1,43 +1,46 @@
 #ifndef PARAMS_H
 #define PARAMS_H
 
-extern Vector2 screenSize;
-extern Vector2 screenCenter;
+const extern Vector2 screenSize;
+const extern Vector2 screenCenter;
 
-extern int clockRadius;
-extern Color clockColor;
+const extern int clockRadius;
+const extern Color clockColor;
 
-extern int hourHandLength;
-extern int hourHandThick;
-extern int hourHandAngle;
-extern Color hourHandColor;
+const extern int hourHandLength;
+const extern int hourHandThick;
+const extern int hourHandAngle;
+const extern Color hourHandColor;
 
-extern int minuteHandLength;
-extern int minuteHandThick;
-extern int minuteHandAngle;
-extern Color minuteHandColor;
+const extern int minuteHandLength;
+const extern int minuteHandThick;
+const extern int minuteHandAngle;
+const extern Color minuteHandColor;
 
-extern int secondHandLength;
-extern int secondHandThick;
-extern int secondHandAngle;
-extern Color secondHandColor;
+const extern int secondHandLength;
+const extern int secondHandThick;
+const extern int secondHandAngle;
+const extern Color secondHandColor;
 
 typedef struct
 {
-    float radius;
+    int radius;
     Color color;
     Vector2 center;
 } ClockFace;
 
 typedef struct
 {
-    float length;
-    float thick;
-    float angle;
+    int length;
+    int thick;
+    int angle;
     Color color;
 } ClockHand;
 
-void InitClockFace(ClockFace *cl, int radius, Color color, Vector2 center);
-void InitClockHand(ClockHand *ch, int length, int thick, int angle, Color color);
+extern ClockFace cf;
+extern ClockHand hourHand, minuteHand, secondHand;
+
+//void InitClockFace(ClockFace *cl, int radius, Color color, Vector2 center);
+//void InitClockHand(ClockHand *ch, int length, int thick, int angle, Color color);
 
 #endif
