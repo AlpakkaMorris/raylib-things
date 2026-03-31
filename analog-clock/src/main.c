@@ -10,19 +10,10 @@
 
 int main(void)
 {
-
-    //InitClockFace(&cf, clockRadius, clockColor, screenCenter);
-
-
-    //InitClockHand(&hourHand, hourHandLength, hourHandThick, hourHandAngle, hourHandColor);
-    //InitClockHand(&minuteHand, minuteHandLength, minuteHandThick, minuteHandAngle, minuteHandColor);
-    //InitClockHand(&secondHand, secondHandLength, secondHandThick, secondHandAngle, secondHandColor);
-
     bool isSettingsWindowOpened = false;
 
-
     InitWindow(screenSize.x, screenSize.y, "analog clock");
-    //InitSettingsWindow();
+
     SetTargetFPS(60);
 
     while (!WindowShouldClose())
@@ -33,7 +24,7 @@ int main(void)
             DrawClockFace(&cf);
             DrawClockMarks(&cf);
             DrawClockHands(&hourHand, &minuteHand, &secondHand);
-            if (GuiButton((Rectangle){ 10, 10, 100, 100 }, "SHOW CONTENT AREA")) isSettingsWindowOpened = true;
+            if (GuiButton((Rectangle){ 10, 10, 100, 100 }, "SETTINGS")) isSettingsWindowOpened = true;
             DrawSettingsWindow(&isSettingsWindowOpened);
         EndDrawing();
 
