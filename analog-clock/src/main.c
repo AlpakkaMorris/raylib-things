@@ -27,10 +27,7 @@ int main(void)
             if (GuiButton((Rectangle){ 10, 10, 100, 100 }, "SETTINGS")) isSettingsWindowOpened = true;
             DrawSettingsWindow(&isSettingsWindowOpened);
         EndDrawing();
-
     }
-
     CloseWindow();
-
     return 0;
 }

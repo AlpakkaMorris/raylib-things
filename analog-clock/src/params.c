@@ -4,40 +4,32 @@
 const Vector2 screenSize = {700, 700};
 const Vector2 screenCenter = {350, 350};
 
-const int clockRadius = 300.0f;
+const int clockRadius = 300;
 const Color clockColor = LIGHTGRAY;
 
-const int hourHandLength = 150.0f;
-const int hourHandThick = 6.0f;
-const int hourHandAngle = 0.0f;
+const int hourHandLength = 150;
+const int hourHandThick = 6;
+const int hourHandAngle = 0;
 const Color hourHandColor = BLACK;
 
-const int minuteHandLength = 190.0f;
-const int minuteHandThick = 4.0f;
-const int minuteHandAngle = 0.0f;
+const int minuteHandLength = 190;
+const int minuteHandThick = 4;
+const int minuteHandAngle = 0;
 const Color minuteHandColor = BLACK;
 
-const int secondHandLength = 210.0f;
-const int secondHandThick = 2.0f;
-const int secondHandAngle = 0.0f;
+const int secondHandLength = 210;
+const int secondHandThick = 2;
+const int secondHandAngle = 0;
 const Color secondHandColor = RED;
 
-ClockFace cf = {(int)clockRadius, clockColor, screenCenter};
-ClockHand hourHand = {(int)hourHandLength, (int)hourHandThick, (int)hourHandAngle, hourHandColor};
-ClockHand minuteHand = {(int)minuteHandLength, (int)minuteHandThick, (int)minuteHandAngle, minuteHandColor};
-ClockHand secondHand = {(int)secondHandLength, (int)secondHandThick, (int)secondHandAngle, secondHandColor};
+ClockFace cf = {clockRadius, clockColor, screenCenter};
+ClockHand hourHand = {(float)hourHandLength, (float)hourHandThick, (float)hourHandAngle, hourHandColor};
+ClockHand minuteHand = {(float)minuteHandLength, (float)minuteHandThick, (float)minuteHandAngle, minuteHandColor};
+ClockHand secondHand = {(float)secondHandLength, (float)secondHandThick, (float)secondHandAngle, secondHandColor};
 
-/*void InitClockFace(ClockFace *cl, int radius, Color color, Vector2 center)
+void UpdateSettingsValues(ClockFace *cf, ClockHand *hch, ClockHand *mch, ClockHand *sch)
 {
-    cl->radius = (int)radius;
-    cl->color = color;
-    cl->center = center;
+    hch->length = (float)cf->radius * 0.6f;
+    mch->length = (float)cf->radius * 0.7f;
+    sch->length = (float)cf->radius * 0.8f;
 }
-
-//void InitClockHand(ClockHand *ch, int length, int thick, int angle, Color color)
-{
-    ch->length = (int)length;
-    ch->thick = (int)thick;
-    ch->color = color;
-}
-*/

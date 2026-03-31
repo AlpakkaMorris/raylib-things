@@ -21,7 +21,7 @@ void DrawSettingsWindow(bool *isSettingsWindowOpened)
     BeginScissorMode(settingsWindowView.x, settingsWindowView.y, settingsWindowView.width, settingsWindowView.height);
       //GuiGrid((Rectangle){settingsWindowMainRect.x + settingsWindowScroll.x, settingsWindowMainRect.y + settingsWindowScroll.y,   settingsWindowContentRect.width, settingsWindowContentRect.height}, NULL, 16, 3, NULL);
       //int res = GuiButton((Rectangle){settingsWindowElementBaseOffset + settingsWindowScroll.x, settingsWindowElementBaseOffset + settingsWindowScroll.y, 100, 50}, "test");
-      DrawSettingsLabel("Clock Radius", 1, &hourHand.length);
+      DrawSettingsLabel("Clock Radius", 1, &cf.radius);
       //DrawSettingsLabel("size", 2, &)settingsWindowElementBaseOffset);
     EndScissorMode();
     if (result > 0) *isSettingsWindowOpened = false;

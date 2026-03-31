@@ -31,16 +31,13 @@ typedef struct
 
 typedef struct
 {
-    int length;
-    int thick;
-    int angle;
+    float length;
+    float thick;
+    float angle;
     Color color;
 } ClockHand;
 
 extern ClockFace cf;
 extern ClockHand hourHand, minuteHand, secondHand;
-
-//void InitClockFace(ClockFace *cl, int radius, Color color, Vector2 center);
-//void InitClockHand(ClockHand *ch, int length, int thick, int angle, Color color);
 
 #endif
