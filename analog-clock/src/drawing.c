@@ -6,8 +6,8 @@
 
 void DrawClockFace(ClockFace *cf)
 {
-    DrawCircleV(screenCenter, cf->radius, cf->color);
-    DrawCircleLinesV(screenCenter, cf->radius, cf->color);
+    DrawCircleV(screenCenter, (float)cf->radius, cf->color);
+    DrawCircleLinesV(screenCenter, (float)cf->radius, cf->color);
 }
 
 void DrawClockMarks(ClockFace *cf)
@@ -33,13 +33,13 @@ void DrawClockHands(ClockHand *hch, ClockHand *mch, ClockHand *sch)
 {
     time_t maintime = time(NULL);
     struct tm *time = localtime(&maintime);
-    float hour = ((float)(time->tm_hour) > 12.0f) ? (float)(time->tm_hour) - 12.0f: (float)(time->tm_hour);
+    float hour = (((float)(time->tm_hour) > 12.0f) ? (float)(time->tm_hour) - 12.0f: (float)(time->tm_hour)) + time->tm_min / 60.0 + time->tm_sec / 3600.0;
     hch->angle = ((hour * 30.0) - 90.0) * PI / 180.0;
     Vector2 hstartPos = screenCenter;
     Vector2 hendPos = {screenCenter.x + hch->length * cosf(hch->angle), screenCenter.y + hch->length * sinf(hch->angle)};
     DrawLineEx(hstartPos, hendPos, hch->thick, hch->color);
 
-    float min = (float)(time->tm_min);
+    float min = (float)(time->tm_min) + time->tm_sec / 60.0;;
     mch->angle = ((min * 6.0) - 90.0) * PI / 180.0;
     Vector2 mstartPos = screenCenter;
     Vector2 mendPos = {screenCenter.x + mch->length * cosf(mch->angle), screenCenter.y + mch->length * sinf(mch->angle)};

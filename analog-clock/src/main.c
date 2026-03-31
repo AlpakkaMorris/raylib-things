@@ -29,7 +29,7 @@ int main(void)
     {
         BeginDrawing();
             ClearBackground(RAYWHITE);
-
+            UpdateClockParams(&cf, &hourHand, &minuteHand, &secondHand);
             DrawClockFace(&cf);
             DrawClockMarks(&cf);
             DrawClockHands(&hourHand, &minuteHand, &secondHand);
