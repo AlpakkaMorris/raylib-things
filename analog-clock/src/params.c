@@ -33,7 +33,6 @@ void UpdateClockParams(ClockFace *cf, ClockHand *hch, ClockHand *mch, ClockHand 
     hch->length = cf->radius * 0.6f;
     mch->length = cf->radius * 0.7f;
     sch->length = cf->radius * 0.8f;
-    printf("%f, %f, %f\n", hch->angle, mch->angle, sch->angle);
 }
 /*void InitClockFace(ClockFace *cl, int radius, Color color, Vector2 center)
 {
