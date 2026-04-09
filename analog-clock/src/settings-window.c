@@ -19,25 +19,28 @@ Vector2 panelScroll = { 0, 0 };
 int baseOffset = 50;
 
 bool showContentArea = true;
+bool editModeClock = false;
+bool editModeHourHand = false;
+
+int selectedClockColor = -1;
+int selectedHourHandColor = -1;
+
+const char* colors_list = "Red;Blue;Green;Gray";
 
 void DrawSettingsWindow(bool *isSettingsWindowOpened)
 {
       if (*isSettingsWindowOpened)
       {
-      int result = GuiWindowBox(baseRec, "title");
-
-      DrawRectangle(panelRec.x + panelScroll.x, panelRec.y + panelScroll.y, panelContentRec.width, panelContentRec.height, Fade(RED, 0.1));
-
-
-        DrawText(TextFormat("[%f, %f]", panelScroll.x, panelScroll.y), 4, 4, 20, RED);
+        int result = GuiWindowBox(baseRec, "title");
 
         GuiScrollPanel(panelRec, NULL, panelContentRec, &panelScroll, &panelView);
 
         BeginScissorMode(panelView.x, panelView.y, panelView.width, panelView.height);
-          DrawSettingsLabel("Clock Radius", 1, &cf.radius);
-          DrawSettingsLabel("Clock Radius", 2, &cf.radius);
-          DrawSettingsLabel("Clock Radius", 3, &cf.radius);
-          DrawSettingsLabel("Clock Radius", 4, &cf.radius);
+
+          DrawSettingsSelector("Hour Hand Color", 3, colors_list, &hourHand.color, &selectedHourHandColor, &editModeHourHand);
+
+          DrawSettingsSelector("Clock Color", 2, colors_list, &cf.color,  &selectedClockColor, &editModeClock);
+        DrawSettingsLabel("Clock Radius", 1, &cf.radius);
         EndScissorMode();
       if (result > 0) *isSettingsWindowOpened = false;
       }
@@ -45,7 +48,25 @@ void DrawSettingsWindow(bool *isSettingsWindowOpened)
 
 void DrawSettingsLabel(const char* settingName, int position, int* settingValue)
 {
-  GuiLabel((Rectangle){panelContentRec.x + 30 + panelScroll.x, panelContentRec.y + (30 * position) + panelScroll.y, 100, 24}, settingName);
-  GuiValueBox((Rectangle){panelContentRec.x + 140 + panelScroll.x, panelContentRec.y + (30 * position) + panelScroll.y, 50, 24}, "test", settingValue, 0, 1000, 1);
+  GuiLabel((Rectangle){panelContentRec.x + 30 + panelScroll.x, panelContentRec.y + (30 * position) + panelScroll.y, 150, 24}, settingName);
+  GuiValueBox((Rectangle){panelContentRec.x + 140 + panelScroll.x, panelContentRec.y + (30 * position) + panelScroll.y, 50, 24}, "", settingValue, 0, 1000, 1);
 }
 
+void DrawSettingsSelector(const char* settingName, int position, const char* options, Color *settingValue, int *selectedColor, bool* editMode)
+{
+  GuiLabel((Rectangle){panelContentRec.x + 30 + panelScroll.x, panelContentRec.y + (30 * position) + panelScroll.y, 150, 24}, settingName);
+  if(GuiDropdownBox((Rectangle){panelContentRec.x + 140 + panelScroll.x, panelContentRec.y + (30 * position) + panelScroll.y, 50, 24}, options, selectedColor, *editMode)) *editMode = !*editMode;
+  SelectColor(selectedColor, settingValue);
+}
+
+void SelectColor(int *selected, Color *color)
+{
+  switch(*selected)
+  {
+    case 0: *color = RED; break;
+    case 1: *color = BLUE; break;
+    case 2: *color = GREEN; break;
+    case 3: *color = LIGHTGRAY; break;
+    default: break;
+  }
+}

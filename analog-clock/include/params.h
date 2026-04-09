@@ -42,7 +42,4 @@ extern ClockHand hourHand, minuteHand, secondHand;
 
 void UpdateClockParams(ClockFace *cf, ClockHand *hch, ClockHand *mch, ClockHand *sch);
 
-//void InitClockFace(ClockFace *cl, int radius, Color color, Vector2 center);
-//void InitClockHand(ClockHand *ch, int length, int thick, int angle, Color color);
-
 #endif
