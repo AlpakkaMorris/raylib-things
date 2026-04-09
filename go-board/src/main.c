@@ -10,6 +10,11 @@ int main()
         ClearBackground(RAYWHITE);
         BeginDrawing();
             DrawMainGoBoard(19);
+            if (IsMouseButtonPressed(1))
+            {
+                Vector2 pos = GetMousePosition();
+                DrawGoStone(pos, BLACK);
+            }
         EndDrawing();
     }
     CloseWindow();
